@@ -1,0 +1,56 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Terraform action"
+        required: true
+        default: "plan"
+        type: choice
+        options: [plan, apply, destroy]
+
+jobs:
+  terraform:
+    name: Terraform ${{ github.event.inputs.action || 'plan' }}
+    runs-on: ubuntu-latest
+    environment: production
+    defaults:
+      run:
+        working-directory: terraform
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "~1.9"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Terraform init
+        run: |
+          terraform init \
+            -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}" \
+            -backend-config="key=realtime-rag-lakehouse/terraform.tfstate" \
+            -backend-config="region=${{ secrets.AWS_REGION }}"
+
+      - name: Terraform plan
+        run: terraform plan -out=tfplan
+        env:
+          TF_VAR_gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+          TF_VAR_coingecko_api_key: ${{ secrets.COINGECKO_API_KEY }}
+          TF_VAR_alpha_vantage_api_key: ${{ secrets.ALPHA_VANTAGE_API_KEY }}
+          TF_VAR_news_api_key: ${{ secrets.NEWS_API_KEY }}
+
+      - name: Terraform apply
+        if: github.ref == 'refs/heads/main' && (github.event.inputs.action == 'apply' || github.event_name == 'push')
+        run: terraform apply -auto-approve tfplan
