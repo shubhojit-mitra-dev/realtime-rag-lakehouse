@@ -1,0 +1,11 @@
+# ==============================================================================
+# Example Terraform Variables — Copy to terraform.tfvars for local deployment
+# ==============================================================================
+
+aws_region   = "us-east-1"
+environment  = "dev"
+project_name = "realtime-rag-lakehouse"
+
+bronze_retention_days              = 90
+noncurrent_version_expiration_days = 30
+

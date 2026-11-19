@@ -10,8 +10,8 @@
 | | |
 |---|---|
 | **Current Phase** | Phase 1 — Terraform Infrastructure |
-| **Current Subphase** | Not started — read `docs/phases/phase-1/phase-1-overview.md` |
-| **Branch** | `main` |
+| **Current Subphase** | 1.1 — Terraform provider, backend, and S3 lakehouse buckets |
+| **Branch** | `phase-1.1-s3-buckets` |
 | **Last updated** | 2026-11-19 |
 
 ---
@@ -62,7 +62,19 @@ understand what to build, how to work, and where everything lives.
 
 **Goal**: All AWS infrastructure defined as Terraform code and deployable with `terraform apply`.
 
-> Phase 1 overview doc will be created when Phase 0 is complete.
+**Subphases:**
+
+| Subphase | Title | Branch | Status | PR |
+|---|---|---|---|---|
+| 1.1 | Terraform provider, backend, and S3 lakehouse buckets | `phase-1.1-s3-buckets` | 🟡 PR Open | [#1](https://github.com/shubhojit-mitra-dev/realtime-rag-lakehouse/pull/1) |
+| 1.2 | DynamoDB tables | `phase-1.2-dynamodb` | ⬜ Not Started | — |
+| 1.3 | IAM roles and policies | `phase-1.3-iam` | ⬜ Not Started | — |
+| 1.4 | SSM Parameter Store entries | `phase-1.4-ssm` | ⬜ Not Started | — |
+| 1.5 | Lambda function stubs | `phase-1.5-lambda-stubs` | ⬜ Not Started | — |
+| 1.6 | Step Functions state machine | `phase-1.6-step-functions` | ⬜ Not Started | — |
+| 1.7 | EventBridge scheduled rule | `phase-1.7-eventbridge` | ⬜ Not Started | — |
+| 1.8 | S3 event notification (Gold → Embedder) | `phase-1.8-s3-events` | ⬜ Not Started | — |
+| 1.9 | CloudWatch alarms and monitoring | `phase-1.9-monitoring` | ⬜ Not Started | — |
 
 ---
 
