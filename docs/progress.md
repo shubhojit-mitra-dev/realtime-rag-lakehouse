@@ -66,7 +66,7 @@ understand what to build, how to work, and where everything lives.
 
 | Subphase | Title | Branch | Status | PR |
 |---|---|---|---|---|
-| 1.1 | Terraform provider, backend, and S3 lakehouse buckets | `phase-1.1-s3-buckets` | 🔄 In Progress | — |
+| 1.1 | Terraform provider, backend, and S3 lakehouse buckets | `phase-1.1-s3-buckets` | 🟡 PR Open | — |
 | 1.2 | DynamoDB tables | `phase-1.2-dynamodb` | ⬜ Not Started | — |
 | 1.3 | IAM roles and policies | `phase-1.3-iam` | ⬜ Not Started | — |
 | 1.4 | SSM Parameter Store entries | `phase-1.4-ssm` | ⬜ Not Started | — |
