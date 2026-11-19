@@ -37,6 +37,11 @@ jobs:
       - name: Mypy type check
         run: uv run mypy src/
 
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "~1.9"
+
       - name: Run tests
         run: uv run pytest --cov=src --cov-report=xml
         env:
