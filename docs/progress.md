@@ -9,8 +9,8 @@
 
 | | |
 |---|---|
-| **Current Phase** | Phase 0 — Project Foundation |
-| **Current Subphase** | 0.1 — Repository bootstrap and documentation |
+| **Current Phase** | Phase 1 — Terraform Infrastructure |
+| **Current Subphase** | Not started — read `docs/phases/phase-1/phase-1-overview.md` |
 | **Branch** | `main` |
 | **Last updated** | 2026-11-19 |
 
@@ -20,7 +20,7 @@
 
 | Phase | Title | Status |
 |---|---|---|
-| **Phase 0** | Project Foundation | 🔄 In Progress |
+| **Phase 0** | Project Foundation | ✅ Complete |
 | Phase 1 | Terraform Infrastructure | ⬜ Not Started |
 | Phase 2 | Medallion Pipeline (Bronze → Silver → Gold) | ⬜ Not Started |
 | Phase 3 | Self-Indexing RAG Engine | ⬜ Not Started |
@@ -48,13 +48,13 @@ understand what to build, how to work, and where everything lives.
 - [x] `docs/architecture.md` written (full system design)
 - [x] `docs/progress.md` created (this file)
 - [x] Directory structure scaffolded
-- [ ] `docs/adr/` — all 5 ADRs written
-- [ ] `pyproject.toml` initialized with uv
-- [ ] `pre-commit` config written
-- [ ] `.gitignore` written
-- [ ] `.env.example` written
-- [ ] Phase 1 overview doc written
-- [ ] Initial commits pushed
+- [x] `docs/adr/` — all 5 ADRs written
+- [x] `backend/pyproject.toml` initialized with uv
+- [x] `pre-commit` config written
+- [x] `.gitignore` written
+- [x] `.env.example` written
+- [x] Phase 1 overview doc written
+- [x] Initial commits pushed
 
 ---
 
