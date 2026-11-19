@@ -1,6 +1,7 @@
 """Unit tests for S3 Lakehouse configuration, constants, and bucket structure."""
 
 import os
+import shutil
 import subprocess
 from pathlib import Path
 from unittest.mock import patch
@@ -153,6 +154,9 @@ class TestTerraformLakehouseSyntax:
 
     def test_terraform_validate(self) -> None:
         """Verify terraform validate passes with zero errors."""
+        if not shutil.which("terraform"):
+            pytest.skip("terraform CLI is not installed in the environment")
+
         project_root = Path(__file__).resolve().parents[3]
         tf_root = project_root / "terraform"
 
@@ -178,6 +182,9 @@ class TestTerraformLakehouseSyntax:
 
     def test_terraform_fmt_check(self) -> None:
         """Verify terraform files follow canonical formatting."""
+        if not shutil.which("terraform"):
+            pytest.skip("terraform CLI is not installed in the environment")
+
         project_root = Path(__file__).resolve().parents[3]
         tf_root = project_root / "terraform"
 
